@@ -9,10 +9,10 @@
  * Return: Always 0 Success
  */
 int is_number(char *s)
-{	
+{
 	int a = 0;
 
-	while (s[a]);
+	while (s[a])
 	{
 	if (s[a] < '0' || s[a] > '9')
 	return (0);
@@ -25,9 +25,10 @@ int is_number(char *s)
  * @s: string to be printed
  * Return: the length
  */
-int _strsize (char *s)
+int _strsize(char *s)
 {
 	int a = 0;
+
 	while (s[a] != '\0')
 	{
 	a++;
@@ -39,8 +40,8 @@ int _strsize (char *s)
  */
 void errors(void)
 {
-	printf ("Error\n");
-	exit (98);
+	printf("Error\n");
+	exit(98);
 }
 /**
  * main - multiplies two positive numbers
@@ -51,19 +52,17 @@ void errors(void)
 int main(int argc, char *argv[])
 {
 	char *s1, *s2;
-	int size1, size2, size, a, move, number1, number2, answer, a = 0;
+	int size1, size2, size, a, move, number1, number2, *answer, c = 0;
 
 	s1 = argv[1], s2 = argv[2];
 	if (argc != 3 || !is_number(s1) || !is_number(s2))
-	errors ();
-	size1 = _strrsize(s1);
+	errors();
+	size1 = _strsize(s1);
 	size2 = _strsize(s2);
 	size = size1 + size2 + 1;
 	answer = malloc(sizeof(int) * size);
 	if (!answer)
-	{
 	return (1);
-	}
 	for (a = 0; a <= size1 + size2; a++)
 	answer[a] = 0;
 	for (size1 = size1 - 1; size1 >= 0; size1--)
@@ -83,15 +82,13 @@ int main(int argc, char *argv[])
 	for (a = 0; a < size - 1; a++)
 	{
 	if (answer[a])
-	a = 1;
-	if (a)
+	c = 1;
+	if (c)
 	_putchar(answer[a] + '0');
 	}
-	if (!a)
+	if (!c)
 	_putchar ('0');
 	_putchar ('\n');
 	free(answer);
 	return (0);
 }
-	
-
