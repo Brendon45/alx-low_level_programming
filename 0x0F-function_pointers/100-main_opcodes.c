@@ -24,6 +24,8 @@ int main(int argc, char *argv[])
 	printf("Error\n");
 	exit(2);
 	}
+	var = (char *)main;
+
 	for (a = 0; a < nums; a++)
 	{
 	if (a == nums - 1)
