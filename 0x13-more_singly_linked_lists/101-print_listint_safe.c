@@ -12,7 +12,6 @@ void func_listp(listp_t **head)
 	if (head != NULL)
 	{
 	prv = *head;
-
 	while ((tmp = prv) != NULL)
 	{
 		prv = prv->next;
