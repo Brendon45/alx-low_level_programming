@@ -1,39 +1,42 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
- * main - a function that prints the opcodes of its own main functions
- * @argc: the number of arguments of function
- * @argv: the array of arguments of function
- * Return: Always 0 Success
+ * main - prints its own opcodes
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: Always 0 (Success)
  */
-
 int main(int argc, char *argv[])
 {
-	int nums, a;
-	char *var;
+	int brn, a;
+	char *arr;
 
 	if (argc != 2)
 	{
-	printf("Error\n");
-	exit(1);
+		printf("Error\n");
+		exit(1);
 	}
-	nums = atoi(argv[1]);
-	if (nums < 0)
-	{
-	printf("Error\n");
-	exit(2);
-	}
-	var = (char *)main;
 
-	for (a = 0; a < nums; a++)
+	brn = atoi(argv[1]);
+
+	if (brn < 0)
 	{
-	if (a == nums - 1)
-	{
-	printf("%02hhx\n", var[a]);
-	break;
+		printf("Error\n");
+		exit(2);
 	}
-	printf("%02hhx\n", var[a]);
+
+	arr = (char *)main;
+
+	for (a = 0; a < brn; a++)
+	{
+		if (a == brn - 1)
+		{
+			printf("%02hhx\n", arr[a]);
+			break;
+		}
+		printf("%02hhx ", arr[a]);
 	}
 	return (0);
 }
