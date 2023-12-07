@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * get_dnodeint_at_index - A function that finds a specific node of a linked list
+ * get_dnodeint_at_index - A function finds a specific node of a linked list
  * @head: pointer to the beginning of the list
  * @index: index of the node to retrieve
  *
