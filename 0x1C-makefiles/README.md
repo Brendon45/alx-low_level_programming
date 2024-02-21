@@ -27,6 +27,7 @@ name of the executable: school
 rules: all
 The all rule builds your executable
 variables: none
+
 gcc main.c school.c -o school
 julien@ubuntu:~/0x1C. Makefiles$ ./school 
 j#0000000000000000000000000000000000000
@@ -189,3 +190,5 @@ if __name__ == "__main__":
         [0, 0, 0, 0, 0, 0]
     ]
     print(island_perimeter(grid))
+
+Since Makefiles are like recipes, then Happy Cooking!
