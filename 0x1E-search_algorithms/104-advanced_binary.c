@@ -1,7 +1,7 @@
 #include "search_algos.h"
 
 /**
- * rec_search - Searches for a value in an array of
+ * recursive_search - Searches for a value in an array of
  *              integers using the Binary search algorithm recursively.
  * @array: Pointer to the first element of the array to search.
  * @size: Size of the array.
@@ -10,7 +10,7 @@
  * Return: If the value is found, the index of the number.
  *         If the value is not present or the array is NULL, -1.
  */
-int rec_search(int *array, size_t size, int value)
+int recursive_search(int *array, size_t size, int value)
 {
 	size_t half = size / 2;
 	size_t b;
@@ -35,15 +35,15 @@ int rec_search(int *array, size_t size, int value)
 	{
 		/* Recursively search the left subarray if the size is > 1 */
 		if (half > 0)
-			return (rec_search(array, half + 1, value));
+			return (recursive_search(array, half + 1, value));
 		return ((int)half); /* Return the index of the target value */
 	}
 
 	/* Recursively search the left or right subarray based on the value */
 	if (value < array[half])
-		return (rec_search(array, half + 1, value));
+		return (recursive_search(array, half + 1, value));
 	half++;
-	return (rec_search(array + half, size - half, value) + half);
+	return (recursive_search(array + half, size - half, value) + half);
 }
 
 /**
