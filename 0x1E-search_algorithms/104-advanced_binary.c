@@ -60,7 +60,7 @@ int advanced_binary(int *array, size_t size, int value)
 	int idx;
 
 	/* Call rec_search to perform the binary search */
-	idx = rec_search(array, size, value);
+	idx = recursive_search(array, size, value);
 
 	/* Check if the value is found and matches the target value */
 	if (idx >= 0 && array[idx] != value)
