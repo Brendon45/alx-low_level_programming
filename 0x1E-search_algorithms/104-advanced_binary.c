@@ -47,7 +47,7 @@ int rec_search(int *array, size_t size, int value)
 }
 
 /**
- * advanced_binary - Function that calls rec_search to return the index of the number.
+ * advanced_binary - It calls rec_search to return the index of the number.
  * @array: Pointer to the first element of the array to search.
  * @size: Size of the array.
  * @value: Value to search for.
@@ -57,14 +57,14 @@ int rec_search(int *array, size_t size, int value)
  */
 int advanced_binary(int *array, size_t size, int value)
 {
-	int index;
+	int idx;
 
 	/* Call rec_search to perform the binary search */
-	index = rec_search(array, size, value);
+	idx = rec_search(array, size, value);
 
 	/* Check if the value is found and matches the target value */
-	if (index >= 0 && array[index] != value)
+	if (idx >= 0 && array[idx] != value)
 		return (-1);
 
-	return (index); /* Return the index of the target value */
+	return (idx); /* Return the index of the target value */
 }
