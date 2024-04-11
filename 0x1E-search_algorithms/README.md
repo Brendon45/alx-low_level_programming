@@ -163,3 +163,83 @@ You can assume that array will be sorted in ascending order
 If value is not present in array or if array is NULL, your function must return -1
 Every time you split the array, you have to print the new array (or subarray) you’re searching in (See example)
 You have to use recursion. You may only use one loop (while, for, do while, etc.) in order to print the array
+
+## 12. Jump search in a singly linked list
+advanced
+You might think that linear search is not as effective as any other algorithm, right? Well, we should see what happens with a singly linked list.
+
+Please define the following data structure in your search_algos.h header file:
+
+/**
+ * struct listint_s - singly linked list
+ *
+ * @n: Integer
+ * @index: Index of the node in the list
+ * @next: Pointer to the next node
+ *
+ * Description: singly linked list node structure
+ */
+typedef struct listint_s
+{
+    int n;
+    size_t index;
+    struct listint_s *next;
+} listint_t;
+Write a function that searches for a value in a sorted list of integers using the Jump search algorithm.
+
+Prototype : listint_t *jump_list(listint_t *list, size_t size, int value);
+Where list is a pointer to the head of the list to search in
+size is the number of nodes in list
+And value is the value to search for
+Your function must return a pointer to the first node where value is located
+You can assume that list will be sorted in ascending order
+If value is not present in head or if head is NULL, your function must return NULL
+You have to use the square root of the size of the list as the jump step.
+You can use the sqrt() function included in <math.h> (don’t forget to compile with -lm)
+Every time you compare a value in the list to the value you are searching, you have to print this value (see example)
+NOTE: You can find here the functions used in the example. You don’t need to push them, we will compile your file with our own implementation during the correction.
+
+## 13. Linear search in a skip list
+advanced
+As you see now, looking for a specific value in a singly linked list always leads to browse every element of the list. A common way to optimize the time complexity of a search in a singly linked list is to modify the list itself by adding an “express lane” to browse it. A linked list with an express lane is called a skip list. This change does not come without consequences. Indeed, the space complexity of a search in this kind of list will grow as sizeof(skiplist_t) > sizeof(listint_t) (see example below).
+
+Please define the following data structure in your search_algos.h header file:
+
+/**
+ * struct skiplist_s - Singly linked list with an express lane
+ *
+ * @n: Integer
+ * @index: Index of the node in the list
+ * @next: Pointer to the next node
+ * @express: Pointer to the next node in the express lane
+ *
+ * Description: singly linked list node structure with an express lane
+ */
+typedef struct skiplist_s
+{
+    int n;
+    size_t index;
+    struct skiplist_s *next;
+    struct skiplist_s *express;
+} skiplist_t;
+Write a function that searches for a value in a sorted skip list of integers.
+
+Prototype : skiplist_t *linear_skip(skiplist_t *list, int value);
+Where list is a pointer to the head of the skip list to search in
+A node of the express lane is placed every index which is a multiple of the square root of the size of the list (see example below)
+And value is the value to search for
+You can assume that list will be sorted in ascending order
+Your function must return a pointer on the first node where value is located
+If value is not present in list or if head is NULL, your function must return NULL
+Every time you compare a value in the list to the value you are searching, you have to print this value (see example below)
+NOTE: You can find here the functions used in the example. You don’t need to push them, we will compile your file with our own implementation during the correction.
+
+## 14. Big O #6
+advanced
+
+What is the time complexity (average case) of a jump search in a singly linked list of size n, using step = sqrt(n)?
+
+## 5. Big O #7
+advanced
+
+What is the time complexity (average case) of a jump search in a skip list of size n, with an express lane using step = sqrt(n)?
